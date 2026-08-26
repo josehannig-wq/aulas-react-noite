@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black'
-    
+  },
   input:{
     width: 250,
     borderWidth: 2,
