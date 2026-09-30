@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Conexão com o bamco de dados mysql
+//CONEXÃO COM O BANCO DE DADOS MYSQL
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -14,22 +14,34 @@ const db = mysql.createConnection({
     database: 'aula_db'
 });
 
-db.conect( err => {
-    if(err) console.log('Erro ao conectar no mysql: ', err);
+db.connect( err => {
+    if( err ) console.log('Erro ao conectar no MySQL: ', err );
     else console.log('Conectado com Sucesso!')
 })
 
-//Rota para salvar os dados recebidos do app
-app.post('/salvar', (req, res) => { 
+//ROTA PARA SALVAR OS DADOS RECEBIDOS DO APP
+app.post('/salvar', (req, res) => {
     const { campo1, campo2 } = req.body;
-    const query = 'INSERT INTO  mensagens  (campo1, campo2) VALUES (?,?)';
+    const query = 'INSERT INTO mensagens (campo1, campo2) VALUES (?,?)';
 
     db.query(query, [campo1, campo2], (err, result )=>{
         if(err) {
             return res.status(500).json({erro: 'Erro ao salvar no banco.'})
         }
-       res.status(200).json({mensagem: 'Dados salvos com Sucesso!'})
-   })
+        res.status(200).json({mensagem: 'Dados salvos com sucesso!'})
+    })
 })
 
-app.listen(3000, () => console.log('Servidor rodandfo na Porta 3000'))
+app.listen(3000, () => console.log('Servidor rodando no porta 3000'));
+
+
+//INSTALAR OS SEGUINTES COMANDOS NODE PARA CONFIGURACAO E
+//COMUNICACAO COM O MYSQL:
+
+//npm install express
+
+//npm install mysql2
+
+//npm install mysql2 cors
+
+//npm install cors
