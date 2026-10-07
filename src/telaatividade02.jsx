@@ -34,7 +34,7 @@ export default function CadastroScreen() {
           <View style={styles.inputBox}><TextInput placeholder="Confirmar Senha" placeholderTextColor="#7aa57a" value={confSenha} onChangeText={setConfSenha} secureTextEntry style={styles.input} /></View>
 
           <Text style={styles.label}>Tipo de Usuário</Text>
-          <TouchableOpacity style_{[styles.inputBox, styles.selectBox]} onPresss={() => setShowPicker(true)}>
+          <TouchableOpacity style={[styles.inputBox, styles.selectBox]} onPresss={() => setShowPicker(true)}>
             <Text style={styles.input}>{tipo}</Text>
             <Text style={styles.arrow}>v</Text>
           </TouchableOpacity>

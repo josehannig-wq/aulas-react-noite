@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TextInput} from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 class Tela01 extends Component {
 
@@ -34,7 +34,7 @@ class Tela01 extends Component {
         </View>
 
         <View style={ styles.bloco2}>
-             <Text style={ styles.welcomeText}>Bem-Vindo</Text>
+             <Text style={ styles.welcomeText}>Bem-Vindo!</Text>
              <Text style={ styles.subText}>Acesse sua conta</Text>
              <TextInput 
                  style={styles.input}
@@ -49,11 +49,24 @@ class Tela01 extends Component {
                  placeholderTextColor="#4caf50"
                  keybordType='email-address'
              />
-                 <style></style>
+                
+          <TouchableOpacity style={ styles.forgoPassword}>
+             <Text style={{ color:'#000', textDecorationLine: 'underline'}}> Esqueci a Minha Senha </Text>            
+          </TouchableOpacity> 
+
+          <TouchableOpacity style={ styles.button}>
+             <Text style={ styles.buttonText}> Entrar </Text>            
+          </TouchableOpacity>      
+        
+        
         </View>
 
         <View style={ styles.bloco3}>
-
+        
+        <Text style={ styles.footerText }>Ainda não tem conta? </Text>            
+             <TouchableOpacity>
+                <Text style={ styles.linkText }>Cadastre_se</Text>
+                </TouchableOpacity>    
         </View>
 
 
@@ -79,14 +92,15 @@ bloco1: {
 
 bloco2: {
     flex: 1,
+    width: '90%'
 },
 
-bloco3: {
-    borderColor: 'black',
-    borderWidth: 2,
-    width: '100%',
-    height: 50
-
+bloco3: { 
+    height: 100,       
+    width: '100%',   
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
 },
 
 divisor: {
@@ -117,13 +131,39 @@ subText: {
     textAlign: 'center'
 },
 input: {
-    width: '90%',
+    width: '100%',
     borderWidth: 1,
     borderColor: '#4caf50',
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,
     color: 'black'    
+},
+forgoPassword:{
+    alignSelf: 'center',
+    marginBottom: 30
+},
+button:{
+    width: '100%',
+    backgroundColor: '#4caf50',
+    padding: 15,
+    borderRadius:8,
+    marginBottom: 15,
+    alignItems: 'center',
+},
+buttonText:{
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold'
+},
+footerText:{
+    color: '#000',
+},
+
+linkText: {
+    color: '#000',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline'
 }
 
 });
